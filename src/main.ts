@@ -26,6 +26,7 @@ import { Paginator } from "./widgets/paginator";
 import { CountCombo } from "./widgets/count-combo";
 import { MatrixSelector } from "./widgets/matrix-selector";
 import { IOGrid } from "./widgets/iogrid/iogrid";
+import { IOGrid as IOGridRegionalized } from "./widgets/iogrid-regionalized/iogrid";
 import { DotsMenu } from "./widgets/dotsMenu";
 
 export * from "./naics";
@@ -86,6 +87,10 @@ export function outputList(args: WidgetArgs): IOList {
 
 export function ioGrid(args: WidgetArgs): IOGrid {
     return new IOGrid(args.model, args.selector);
+}
+
+export function IoGridRegionalized(args: WidgetArgs): IOGridRegionalized {
+    return new IOGridRegionalized(args.model, args.selector);
 }
 
 export function sectorDelete(args: WidgetArgs): SectorDelete {

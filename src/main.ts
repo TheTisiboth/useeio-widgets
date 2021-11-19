@@ -7,27 +7,25 @@
  * @packageDocumentation
  */
 
+import { modelOf, WebApiConfig, WebModel } from "useeio";
 import {
-    SimpleConfigTransmitter,
-    HtmlAttributeConfigTransmitter,
-    UrlConfigTransmitter,
+    HtmlAttributeConfigTransmitter, SimpleConfigTransmitter, UrlConfigTransmitter,
     WidgetArgs
 } from ".";
-
-import { FilterWidget } from "./widgets/filter";
-import { SectorList } from "./widgets/sector-list/sector-list";
-import { IOList } from "./widgets/sector-list/io-list";
-import { SectorDelete } from "./widgets/sector-list";
-import { ImpactChart, ImpactChartConfig } from "./widgets/impact-chart";
-import { SettingsWidget, SettingsWidgetConfig } from "./widgets/settings";
-import { WebApiConfig, WebModel, modelOf } from "useeio";
 import { ProfileChart, ProfileChartConfig } from "./charts/profile-chart";
-import { Paginator } from "./widgets/paginator";
 import { CountCombo } from "./widgets/count-combo";
-import { MatrixSelector } from "./widgets/matrix-selector";
-import { IOGrid } from "./widgets/iogrid/iogrid";
-import { IOGrid as IOGridRegionalized } from "./widgets/iogrid-regionalized/iogrid";
 import { DotsMenu } from "./widgets/dotsMenu";
+import { FilterWidget } from "./widgets/filter";
+import { ImpactChart, ImpactChartConfig } from "./widgets/impact-chart";
+import { IOGrid } from "./widgets/iogrid/iogrid";
+import { JobsGrid } from "./widgets/jobsTable/jobs";
+import { MatrixSelector } from "./widgets/matrix-selector";
+import { Paginator } from "./widgets/paginator";
+import { SectorDelete } from "./widgets/sector-list";
+import { IOList } from "./widgets/sector-list/io-list";
+import { SectorList } from "./widgets/sector-list/sector-list";
+import { SettingsWidget, SettingsWidgetConfig } from "./widgets/settings";
+
 
 export * from "./naics";
 
@@ -89,8 +87,8 @@ export function ioGrid(args: WidgetArgs): IOGrid {
     return new IOGrid(args.model, args.selector);
 }
 
-export function IoGridRegionalized(args: WidgetArgs): IOGridRegionalized {
-    return new IOGridRegionalized(args.model, args.selector);
+export function jobsGrid(args: WidgetArgs): JobsGrid {
+    return new JobsGrid(args.model, args.selector);
 }
 
 export function sectorDelete(args: WidgetArgs): SectorDelete {

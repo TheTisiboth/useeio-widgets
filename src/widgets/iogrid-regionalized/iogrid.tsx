@@ -95,6 +95,7 @@ export class IOGrid extends Widget {
         const rawSectors = await this.model.sectors();
         const rawA = await this.model.matrix("A");
         const rawD = await this.model.matrix("D");
+        // const rawQ = await this.model.matrix("Q");
         const isMultiRegional = await this.model.isMultiRegional();
         this.indicators = await this.model.indicators();
 
@@ -135,6 +136,9 @@ export class IOGrid extends Widget {
                     }
                     const sum = this.techMatrix.get(row, col) + val;
                     this.techMatrix.set(row, col, sum);
+                    // try to scale with the Q matrix
+                    // this.techMatrix.set(row, col, sum*rawQ.get(rawCol,0)); 
+                    // this.techMatrix.set(col, row, sum*rawQ.get(rawRow,0));
                 }
             }
 
@@ -150,6 +154,8 @@ export class IOGrid extends Widget {
                     if (isNone(col)) {
                         continue;
                     }
+                    // try to scale with the Q matrix
+                    // const sum = (this.directImpacts.get(i, col) + val) * rawQ.get(i,0);
                     const sum = this.directImpacts.get(i, col) + val;
                     this.techMatrix.set(i, col, sum);
                 }
